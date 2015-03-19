@@ -1,5 +1,6 @@
 package statustwitter;
 
+import twitter4j.Paging;
 import twitter4j.Query;
 import twitter4j.QueryResult;
 import twitter4j.Status;
@@ -28,10 +29,13 @@ public class StatusTwitter {
             .setOAuthAccessToken("3071782811-swWUCwNyPvMzh1YeBswLBNQxryLBbgLYjcnI7u7")
             .setOAuthAccessTokenSecret("hZ1EOtvXUSfijp7LQp1x2sIWugSQWUZZ7JeigHtshHjsr");
         
-        Twitter mitwitter = new TwitterFactory().getInstance();
+        twitter = new TwitterFactory(cb.build()).getInstance();
+        Paging pagina = new Paging();
+        
+        // Twitter mitwitter = new TwitterFactory().getInstance();
  
         Query query = new Query("#Cangas");
-        QueryResult result = mitwitter.search(query);
+        QueryResult result = twitter.search(query);
         for (Status status : result.getTweets()) {
             System.out.println("@" + status.getUser().getScreenName() + ":" + status.getText());
         }
