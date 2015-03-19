@@ -6,6 +6,7 @@ import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
+import twitter4j.conf.ConfigurationBuilder;
 
 /**
  * Clase para recobrar los twitts del morrazo
@@ -19,7 +20,13 @@ public class StatusTwitter {
      */
     public static void main(String[] args) throws TwitterException {
     
-        
+        Twitter twitter;
+        ConfigurationBuilder cb = new ConfigurationBuilder();
+        cb.setDebugEnabled(true)
+            .setOAuthConsumerKey("oLYQrbdZr7vCoSPzc3hmnEV9o")
+            .setOAuthConsumerSecret("v6spVDNezxCMi5VQnDhXtRaj7w4H8zh0A6vkAAc5yzOQzItKJF")
+            .setOAuthAccessToken("3071782811-swWUCwNyPvMzh1YeBswLBNQxryLBbgLYjcnI7u7")
+            .setOAuthAccessTokenSecret("hZ1EOtvXUSfijp7LQp1x2sIWugSQWUZZ7JeigHtshHjsr");
         
         Twitter mitwitter = new TwitterFactory().getInstance();
  
